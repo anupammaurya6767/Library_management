@@ -1,0 +1,61 @@
+<DFD>
+  <!-- Level 0 DFD (Context Diagram) -->
+  <Level0DFD>
+    <Processes>
+      <Process name="LibrarySystem"/>
+      <Process name="LibraryUsers"/>
+    </Processes>
+    <DataFlows>
+      <DataFlow name="UserRequests"/>
+      <DataFlow name="LibraryServices"/>
+    </DataFlows>
+  </Level0DFD>
+
+  <!-- Level 1 DFD -->
+  <Level1DFD>
+    <Processes>
+      <Process name="LibrarySystem">
+        <SubProcesses>
+          <SubProcess name="ManageBooks"/>
+          <SubProcess name="ManageUsers"/>
+        </SubProcesses>
+      </Process>
+      <Process name="LibraryUsers"/>
+    </Processes>
+    <DataFlows>
+      <!-- Define data flows between LibraryUsers and sub-processes -->
+      <DataFlow name="UserRequestsToManageBooks"/>
+      <DataFlow name="UserRequestsToManageUsers"/>
+      <DataFlow name="LibraryServices"/>
+    </DataFlows>
+  </Level1DFD>
+
+  <!-- Level 2 DFD -->
+  <Level2DFD>
+    <Processes>
+      <Process name="LibrarySystem">
+        <SubProcesses>
+          <SubProcess name="ManageBooks">
+            <SubProcesses>
+              <SubProcess name="AddBook"/>
+              <SubProcess name="BorrowBook"/>
+              <SubProcess name="ReturnBook"/>
+            </SubProcesses>
+          </SubProcess>
+          <SubProcess name="ManageUsers"/>
+        </SubProcesses>
+      </Process>
+      <Process name="LibraryUsers"/>
+    </Processes>
+    <DataFlows>
+      <!-- Define data flows between LibraryUsers and sub-processes -->
+      <DataFlow name="UserRequestsToManageBooks"/>
+      <DataFlow name="UserRequestsToManageUsers"/>
+      <DataFlow name="LibraryServices"/>
+      
+      <!-- Define data flows between sub-processes -->
+      <DataFlow name="AddBookToBorrowBook"/>
+      <DataFlow name="BorrowBookToReturnBook"/>
+    </DataFlows>
+  </Level2DFD>
+</DFD>
